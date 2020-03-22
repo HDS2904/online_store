@@ -1,3 +1,4 @@
 package com.example.proyectokotlin
 
-data class ItemLoading (val title:String ="nuevo artículo",val desc:String = "artículo aperturado",val price: String = "0.0")
+//contenedor de datos de cada producto
+data class ItemLoading (val title:String ="nuevo artículo",val desc:String = "artículo aperturado",val price: Double= 0.0)

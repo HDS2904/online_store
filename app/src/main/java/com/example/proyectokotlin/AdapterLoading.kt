@@ -1,4 +1,31 @@
 package com.example.proyectokotlin
 
-class AdapterLoading {
+import android.view.View
+import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.item_loading.view.*
+
+class AdapterLoading (val data: List<ItemLoading>): RecyclerView.Adapter<AdapterLoading.Holder>(){
+
+    //Crea la instancia  .xml con su respectivo contenido administrado por Holder
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder = Holder(parent.inflate(R.layout.item_loading))
+
+    //Obtiene la cantidad de datos
+    override fun getItemCount(): Int = data.size
+
+    //Ejecuta el llenado de datos de cada articulo
+    override fun onBindViewHolder(holder: Holder, position: Int) {
+        holder.bindView(data[position])
+    }
+
+    //clase con la funcion administrado de contenido de los artículos
+    class Holder(itemView: View): RecyclerView.ViewHolder(itemView) {
+        fun bindView(itemLoading: ItemLoading) {
+            with(itemLoading){
+                itemView.txtTitle.text = title
+                itemView.txtDesc.text = desc
+                itemView.txtPrice.text = String.format("%.2f",price)
+            }
+        }
+    }
 }
