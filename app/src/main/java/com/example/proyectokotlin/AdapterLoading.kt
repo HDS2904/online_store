@@ -1,7 +1,11 @@
 package com.example.proyectokotlin
 
+import android.app.Activity
+import android.content.Intent
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.app.ActivityOptionsCompat
+import androidx.core.util.Pair
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.item_loading.view.*
 
@@ -25,6 +29,21 @@ class AdapterLoading (val data: List<ItemLoading>): RecyclerView.Adapter<Adapter
                 itemView.txtTitle.text = title
                 itemView.txtDesc.text = desc
                 itemView.txtPrice.text = String.format("%.2f",price)
+
+                itemView.setOnClickListener{
+                    val intent = Intent(itemView.context, DetailActivity::class.java)
+                    intent.putExtra("title", title)
+                    intent.putExtra("desc", desc)
+                    intent.putExtra("price", price)
+
+                    val p1: Pair<View, String> = Pair.create(itemView.imgHeader,"transitionHeader")
+                    val p2: Pair<View, String> = Pair.create(itemView.txtTitle,"transitionTitle")
+                    val p3: Pair<View, String> = Pair.create(itemView.txtDesc,"transitionDesc")
+                    val p4: Pair<View, String> = Pair.create(itemView.txtPrice,"transitionPrice")
+
+                    val options: ActivityOptionsCompat = ActivityOptionsCompat.makeSceneTransitionAnimation(itemView.context as Activity,p1,p2,p3,p4)
+                    itemView.context.startActivity(intent,options.toBundle())
+                }
             }
         }
     }
