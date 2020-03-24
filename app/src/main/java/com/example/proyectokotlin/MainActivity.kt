@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
         rcView.layoutManager = GridLayoutManager(this,2)
 
         //Crea un listado de productos del mismo tipo con la ayuda del rango
-        val itemShop= (0..20).map{
+        val itemShop: List<ItemLoading> = (0..20).map{
             ItemLoading("Titulo $it", "Desc $it", 200.00 + it)
         }
 

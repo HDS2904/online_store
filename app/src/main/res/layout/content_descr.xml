@@ -44,8 +44,23 @@
             android:layout_height="wrap_content"
             android:textSize="18sp"
             android:layout_marginTop="10dp"
-            tools:text="@string/lorempsum" />
+            android:text="@string/lorempsum" />
 
+        <Button
+            android:id="@+id/btn_detail_buy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:gravity="center"
+            android:text="Registrar" />
+
+        <Button
+            android:id="@+id/btn_detail_mos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:gravity="center"
+            android:text="Hello" />
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>
